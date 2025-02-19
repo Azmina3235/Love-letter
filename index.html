@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter 💖</title>
+    <style>
+        /* Soft gradient background */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            margin: 0;
+        }
+
+        /* Main container */
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+            transition: 0.3s;
+        }
+
+        /* Input styling */
+        input {
+            width: 85%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff4d6d;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Button styling */
+        button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e63950;
+        }
+
+        /* Letter styling */
+        #letter {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff0f3;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            font-family: 'Georgia', serif;
+            color: #d6336c;
+        }
+
+        /* Hidden class to hide the letter before showing */
+        .hidden {
+            display: none;
+        }
+
+        /* Signature styling */
+        .signature {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff3366;
+        }
+
+        /* Animation for the letter */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>💌 Enter Your Name 💌</h2>
+        <input type="text" id="userName" placeholder="Your Name">
+        <button onclick="generateLetter()">Open Letter</button>
+        
+        <div id="letter" class="hidden">
+            <h3>My Love,</h3>
+            <p id="message"></p>
+            <p class="signature">Forever yours, <br> ❤</p>
+        </div>
+    </div>
+
+    <script>
+        function generateLetter() {
+            let userName = document.getElementById("userName").value;
+            let letter = document.getElementById("letter");
+            let message = document.getElementById("message");
+
+            if (userName.trim() === "") {
+                alert("Please enter your name!");
+                return;
+            }
+
+            message.innerHTML = `My dearest <b>${userName}</b>,<br><br>
+            Since the day you entered my life, every moment has been filled with love and happiness. 
+            You are the reason my world is brighter, my heart is warmer, and my soul is at peace. 
+            Thank you for being my love, my best friend, and my everything. 
+            I promise to cherish you always. 💖<br><br>`;
+
+            letter.classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
